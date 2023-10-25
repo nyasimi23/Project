@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<?php
+$servername = "localhost"; // Replace with your server name
+$username = 'Xhaka'; // Replace with your MySQL username
+$password = '123456'; // Replace with your MySQL password
+$dbname = 'carcrazeconnect'; // Replace with your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die('Connection failed: ' . $conn->connect_error);
+}
+
+
+// Fetch records from the "cars" table
+$sql = "SELECT * FROM cars";
+$result = $conn->query($sql);
+
+
+?>
+
 <head>
     <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
@@ -45,7 +68,7 @@
                         <a href="events.html" class="nav-link">Events</a>
                     </li>
                     <!-- <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li> -->
-                    <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
+                    <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
                     <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
@@ -70,21 +93,25 @@
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row">
+                <?php foreach ($result as $item) :?>
                 <div class="col-md-4">
                     <div class="car-wrap rounded ftco-animate">
                         <div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
                         </div>
                         <div class="text">
-                            <h2 class="mb-0"><a href="car-single.html">Mercedes Grand Sedan</a></h2>
+                            <h2 class="mb-0"><a href="car-single.html"><?php echo $item['make']; ?></a></h2>
                             <div class="d-flex mb-3">
-                                <span class="cat">Cheverolet</span>
-                                <p class="price ml-auto">$500 <span>/day</span></p>
+                                <span class="cat"><?php echo $item['model']; ?></span>
+                                <p class="price ml-auto">$<?php echo $item['price']; ?></p>
                             </div>
-                            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                            <p class="d-flex mb-0 d-block">
+                                <!-- <a href="#" class="btn btn-primary py-2 mr-1">Book now</a>  -->
+                            <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <?php endforeach; ?>
+                <!-- <div class="col-md-4">
                     <div class="car-wrap rounded ftco-animate">
                         <div class="img rounded d-flex align-items-end" style="background-image: url(images/car-2.jpg);">
                         </div>
@@ -240,7 +267,7 @@
                             <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
