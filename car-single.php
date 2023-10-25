@@ -28,6 +28,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<?php
+$servername = "localhost"; // Replace with your server name
+$username = 'Xhaka'; // Replace with your MySQL username
+$password = '123456'; // Replace with your MySQL password
+$dbname = 'carcrazeconnect'; // Replace with your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die('Connection failed: ' . $conn->connect_error);
+}
+
+// Check if 'id' parameter is set in the URL
+if (isset($_GET['id'])) {
+    $carId = $_GET['id'];
+
+    // Fetch the car details from the database
+    $sql = "SELECT * FROM cars WHERE id = $carId";
+    $result = $conn->query($sql);
+
+    // Display the car details if found
+    if ($result->num_rows > 0) {
+        $car = $result->fetch_assoc();
+?>
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -74,8 +101,8 @@
                     <div class="car-details">
                         <div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div>
                         <div class="text text-center">
-                            <span class="subheading">Cheverolet</span>
-                            <h2>Mercedes Grand Sedan</h2>
+                            <span class="subheading"><?php echo $car['model']; ?></span>
+                            <h2><?php echo $car['make']; ?></h2>
                         </div>
                     </div>
                 </div>
@@ -89,7 +116,7 @@
                                 <div class="text">
                                     <h3 class="heading mb-0 pl-3">
                                         Mileage
-                                        <span>40,000</span>
+                                        <span><?php echo $car['mileage']; ?></span>
                                     </h3>
                                 </div>
                             </div>
@@ -500,3 +527,15 @@
 </body>
 
 </html>
+
+<?php
+    } else {
+        echo "Car not found.";
+    }
+} else {
+    echo "Car ID not provided.";
+}
+
+// Close the database connection
+$conn->close();
+?>
