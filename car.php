@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 
 
 // Fetch records from the "cars" table
-$sql = "SELECT * FROM image";
+$sql = "SELECT * FROM car ";
 $result = $conn->query($sql);
 
 
@@ -96,7 +96,7 @@ $result = $conn->query($sql);
             <?php foreach ($result as $item) : ?>
                 <div class="col-md-4">
                     <div class="car-wrap rounded ftco-animate">
-                    <div class="img rounded d-flex align-items-end" style="background-image: url('./database/image/<?php echo $item['filename']; ?>');">
+                    <div class="img rounded d-flex align-items-end" style="background-image: url('./database/image/<?php echo $item['image'];?>');">
                     </div>
                         <div class="text">
                             <h2 class="mb-0"><a href="car-single.html"></a></h2>

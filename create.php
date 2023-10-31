@@ -9,6 +9,10 @@ $msg = "";
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
 
+
+  $make = $_POST['make'];
+  $model = $_POST['model'];
+  $description = $_POST['description'];
 	$filename = $_FILES["uploadfile"]["name"];
 	$tempname = $_FILES["uploadfile"]["tmp_name"];
 	$folder = "./database/image/" . $filename;
@@ -16,7 +20,7 @@ if (isset($_POST['upload'])) {
 	$db = mysqli_connect("localhost", "root", "", "carcrazeconnect");
 
 	// Get all the submitted data from the form
-	$sql = "INSERT INTO image (filename) VALUES ('$filename')";
+	$sql = "INSERT INTO car (make, model, image , description) VALUES ('$make','$model','$filename','$description')";
 
 	// Execute query
 	mysqli_query($db, $sql);
@@ -69,20 +73,20 @@ if (isset($_POST['upload'])) {
 
     <div class="col-md-8 block-9 mb-md-5">
         <form action="" class="bg-light p-5 contact-form" method="POST"  enctype="multipart/form-data">
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <input type="text" class="form-control" placeholder="Car Make" id="make" name="make">
-            </div> -->
-            <!-- <div class="form-group">
+            </div>
+            <div class="form-group">
                 <input type="text" class="form-control" placeholder="Car Model" id="model" name="model">
-            </div> -->
+            </div>
           
             <div class="form-group">
 				      <input class="form-control" type="file" name="uploadfile" value="" />
 			      </div>
             
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <textarea name="description" cols="30" rows="7" class="form-control" placeholder="Description" id="description" ></textarea>
-            </div> -->
+            </div>
             <div class="form-group">
                 <input name="upload" type="submit" value="CREATE" class="btn btn-primary py-3 px-5" >
             </div>

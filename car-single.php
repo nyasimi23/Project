@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
     $carId = $_GET['id'];
 
     // Fetch the car details from the database
-    $sql = "SELECT * FROM cars WHERE id = $carId";
+    $sql = "SELECT * FROM car WHERE id = $carId";
     $result = $conn->query($sql);
 
     // Display the car details if found
@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
     </nav>
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(''./database/image/<?php echo $car['image']; ?>'');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -100,7 +100,7 @@ if (isset($_GET['id'])) {
                 <div class="col-md-12">
                     <div class="car-details">
 
-                       <?php $car['image']?>;
+                    <div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div>
                         
                        <div class="text text-center">
                             <span class="subheading"><?php echo $car['model']; ?></span>
