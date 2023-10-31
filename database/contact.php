@@ -24,7 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO customer_info (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Data inserted successfully.";
+        echo
+        "
+        <script>
+          alert('Successfully Added')
+        </script>
+        ";
+
+        header('Location: contact.html');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

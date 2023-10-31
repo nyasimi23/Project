@@ -72,7 +72,7 @@ if (isset($_GET['id'])) {
                         <a href="events.html" class="nav-link">Events</a>
                     </li>
                     <!-- <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li> -->
-                    <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
+                    <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
                     <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
@@ -99,8 +99,10 @@ if (isset($_GET['id'])) {
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="car-details">
-                        <div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div>
-                        <div class="text text-center">
+
+                       <?php $car['image']?>;
+                        
+                       <div class="text text-center">
                             <span class="subheading"><?php echo $car['model']; ?></span>
                             <h2><?php echo $car['make']; ?></h2>
                         </div>

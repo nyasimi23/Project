@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 
 
 // Fetch records from the "cars" table
-$sql = "SELECT * FROM cars";
+$sql = "SELECT * FROM image";
 $result = $conn->query($sql);
 
 
@@ -93,20 +93,20 @@ $result = $conn->query($sql);
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row">
-                <?php foreach ($result as $item) :?>
+            <?php foreach ($result as $item) : ?>
                 <div class="col-md-4">
                     <div class="car-wrap rounded ftco-animate">
-                        <div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
-                        </div>
+                    <div class="img rounded d-flex align-items-end" style="background-image: url('./database/image/<?php echo $item['filename']; ?>');">
+                    </div>
                         <div class="text">
-                            <h2 class="mb-0"><a href="car-single.html"><?php echo $item['make']; ?></a></h2>
+                            <h2 class="mb-0"><a href="car-single.html"></a></h2>
                             <div class="d-flex mb-3">
-                                <span class="cat"><?php echo $item['model']; ?></span>
-                                <p class="price ml-auto">$<?php echo $item['price']; ?></p>
+                                <span class="cat"></span>
+                                <p class="price ml-auto"></p>
                             </div>
                             <p class="d-flex mb-0 d-block">
                                 <!-- <a href="#" class="btn btn-primary py-2 mr-1">Book now</a>  -->
-                            <a href="car-single.php?id=<?php echo $item['id'];?>" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                            <a href="" class="btn btn-secondary py-2 ml-1">Details</a></p>
                         </div>
                     </div>
                 </div>
