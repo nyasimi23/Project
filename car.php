@@ -99,9 +99,9 @@ $result = $conn->query($sql);
                     <div class="img rounded d-flex align-items-end" style="background-image: url('./database/image/<?php echo $item['image'];?>');">
                     </div>
                         <div class="text">
-                            <h2 class="mb-0"><a href="car-single.html"></a></h2>
+                            <h2 class="mb-0"><a href="car-single.html"><?php echo $item['make'];?></a></h2>
                             <div class="d-flex mb-3">
-                                <span class="cat"></span>
+                                <span class="cat"><?php echo $item['model'];?></span>
                                 <p class="price ml-auto"></p>
                             </div>
                             <p class="d-flex mb-0 d-block">
