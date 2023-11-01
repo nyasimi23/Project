@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
     </nav>
     <!-- END nav -->
 
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(''./database/image/<?php echo $car['image']; ?>'');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -100,17 +100,18 @@ if (isset($_GET['id'])) {
                 <div class="col-md-12">
                     <div class="car-details">
 
-                    <div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div>
+                    <div class="img rounded" style="background-image: url('./database/image/<?php echo $car['image'];?>');"></div>
                         
                        <div class="text text-center">
                             <span class="subheading"><?php echo $car['model']; ?></span>
                             <h2><?php echo $car['make']; ?></h2>
+        
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md d-flex align-self-stretch ftco-animate">
+                <!-- <div class="col-md d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services">
                         <div class="media-body py-md-4">
                             <div class="d-flex mb-3 align-items-center">
@@ -124,8 +125,8 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md d-flex align-self-stretch ftco-animate">
+                </div> -->
+                <!-- <div class="col-md d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services">
                         <div class="media-body py-md-4">
                             <div class="d-flex mb-3 align-items-center">
@@ -139,8 +140,8 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md d-flex align-self-stretch ftco-animate">
+                </div> -->
+                <!-- <div class="col-md d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services">
                         <div class="media-body py-md-4">
                             <div class="d-flex mb-3 align-items-center">
@@ -154,8 +155,8 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md d-flex align-self-stretch ftco-animate">
+                </div> -->
+                <!-- <div class="col-md d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services">
                         <div class="media-body py-md-4">
                             <div class="d-flex mb-3 align-items-center">
@@ -169,8 +170,8 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md d-flex align-self-stretch ftco-animate">
+                </div> -->
+                <!-- <div class="col-md d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services">
                         <div class="media-body py-md-4">
                             <div class="d-flex mb-3 align-items-center">
@@ -184,7 +185,7 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="row">
                 <div class="col-md-12 pills">
@@ -206,7 +207,7 @@ if (isset($_GET['id'])) {
 
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-4">
                                         <ul class="features">
                                             <li class="check"><span class="ion-ios-checkmark"></span>Airconditions</li>
@@ -234,18 +235,17 @@ if (isset($_GET['id'])) {
                                             <li class="check"><span class="ion-ios-checkmark"></span>Climate control</li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful
-                                    a rethoric question ran over her cheek, then she continued her way.</p>
+                                <p><?php echo $car['description']; ?></p>
+                                
                             </div>
 
                             <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
                                 <div class="row">
-                                    <div class="col-md-7">
+                                    <!-- <div class="col-md-7">
                                         <h3 class="head">23 Reviews</h3>
                                         <div class="review d-flex">
                                             <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
@@ -307,9 +307,9 @@ if (isset($_GET['id'])) {
                                                 <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-5">
-                                        <div class="rating-wrap">
+                                        <!-- <div class="rating-wrap">
                                             <h3 class="head">Give a Review</h3>
                                             <div class="wrap">
                                                 <p class="star">
@@ -368,7 +368,7 @@ if (isset($_GET['id'])) {
                                                     <span>0 Reviews</span>
                                                 </p>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

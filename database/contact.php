@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
         ";
 
-        header('Location: contact.html');
+        // header('Location: contact.html');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

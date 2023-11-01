@@ -2,42 +2,45 @@
 <html lang="en">
 
 <?php
-error_reporting(0);
+error_reporting(E_ALL);
 
 $msg = "";
 
-// If upload button is clicked ...
 if (isset($_POST['upload'])) {
+    $make = $_POST['make'];
+    $model = $_POST['model'];
+    $description = $_POST['description'];
 
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./database/image/" . $filename;
 
-  $make = $_POST['make'];
-  $model = $_POST['model'];
-  $description = $_POST['description'];
-	$filename = $_FILES["uploadfile"]["name"];
-	$tempname = $_FILES["uploadfile"]["tmp_name"];
-	$folder = "./database/image/" . $filename;
+    if (move_uploaded_file($tempname, $folder)) {
+        $db = mysqli_connect("localhost", "root", "", "carcrazeconnect");
+        if ($db) {
+            // Use prepared statements to prevent SQL injection
+            $sql = "INSERT INTO car (make, model, image, description) VALUES (?, ?, ?, ?)";
+            $stmt = mysqli_prepare($db, $sql);
+            mysqli_stmt_bind_param($stmt, "ssss", $make, $model, $filename, $description);
 
-	$db = mysqli_connect("localhost", "root", "", "carcrazeconnect");
+            if (mysqli_stmt_execute($stmt)) {
+                echo '<script>alert("Uploaded successfully");</script>';
+                header('Location: car.php');
+            } else {
+                echo '<h3>Failed to insert data into the database</h3>';
+            }
 
-	// Get all the submitted data from the form
-	$sql = "INSERT INTO car (make, model, image , description) VALUES ('$make','$model','$filename','$description')";
-
-	// Execute query
-	mysqli_query($db, $sql);
-
-	// Now let's move the uploaded image into the folder: image
-	if (move_uploaded_file($tempname, $folder)) {
-		echo
-        "
-        <script>
-          alert('Uploaded succesfully');
-        </script>
-        ";
-	} else {
-		echo "<h3> Failed to upload image!</h3>";
-	}
+            mysqli_stmt_close($stmt);
+            mysqli_close($db);
+        } else {
+            echo '<h3>Failed to connect to the database</h3>';
+        }
+    } else {
+        echo '<h3>Failed to upload image</h3>';
+    }
 }
 ?>
+
 
 
 <head>
