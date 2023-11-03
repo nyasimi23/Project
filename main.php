@@ -47,7 +47,7 @@
                         <a href="events.html" class="nav-link">Events</a>
                     </li>
                     <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
                     <li class="nav-item"><a href="logout.php" class="nav-link">LOG OUT</a></li>
 
                     <!-- <li class="nav-item"><a href="login.php" class="nav-link">LOGIN</a></li> -->

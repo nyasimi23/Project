@@ -16,7 +16,7 @@ if (isset($_POST['upload'])) {
     $folder = "./database/image/" . $filename;
 
     if (move_uploaded_file($tempname, $folder)) {
-        $db = mysqli_connect("localhost", "root", "", "carcrazeconnect");
+        $db = mysqli_connect("localhost", "root", "", "wheelsnation");
         if ($db) {
             // Use prepared statements to prevent SQL injection
             $sql = "INSERT INTO car (make, model, image, description) VALUES (?, ?, ?, ?)";

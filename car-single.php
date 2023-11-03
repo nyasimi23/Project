@@ -240,6 +240,8 @@ if (isset($_GET['id'])) {
 
                             <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
                                 <p><?php echo $car['description']; ?></p>
+                                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful
+                                    a rethoric question ran over her cheek, then she continued her way.</p>
                                 
                             </div>
 
