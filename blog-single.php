@@ -93,6 +93,7 @@ if (isset($_GET['id'])) {
                             <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
                             <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
                             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                            <li class="nav-item"><a href="logout.php" class="nav-link">LOG OUT</a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,62 +118,25 @@ if (isset($_GET['id'])) {
                         <div class="col-md-8 ftco-animate">
                             <h2 class="mb-3"><?php echo $blog['subtitle']; ?></h2>
                             <p><?php echo $blog['blog']; ?></p>
-                            <!-- <p>
-                        <img src="images/image_7.jpg" alt="" class="img-fluid">
-                    </p> -->
-                            <!-- <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet
-                        eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!</p>
-                    <h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>
-                    <p>Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio
-                        dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
-                    <p>
-                        <img src="images/image_8.jpg" alt="" class="img-fluid">
-                    </p>
-                    <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla
-                        quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.</p>
-                    <p>Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis porro explicabo soluta commodi libero voluptatem similique
-                        id quidem? Blanditiis voluptates aperiam non magni. Reprehenderit nobis odit inventore, quia laboriosam harum excepturi ea.</p>
-                    <p>Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam ipsam quidem, dolor distinctio similique asperiores voluptas enim, exercitationem ratione aut adipisci modi quod quibusdam iusto, voluptates beatae iure nemo itaque laborum.
-                        Consequuntur et pariatur totam fuga eligendi vero dolorum provident. Voluptatibus, veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur recusandae!</p>
-                    <p>Voluptas dolores dignissimos dolorum temporibus, autem aliquam ducimus at officia adipisci quasi nemo a perspiciatis provident magni laboriosam repudiandae iure iusto commodi debitis est blanditiis alias laborum sint dolore. Dolores,
-                        iure, reprehenderit. Error provident, pariatur cupiditate soluta doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis, inventore?</p>
-                    <div class="tag-widget post-tag-container mb-5 mt-5">
-                        <div class="tagcloud">
-                            <a href="#" class="tag-cloud-link">Life</a>
-                            <a href="#" class="tag-cloud-link">Sport</a>
-                            <a href="#" class="tag-cloud-link">Tech</a>
-                            <a href="#" class="tag-cloud-link">Travel</a>
-                        </div>
-                    </div> -->
+                           
 
-                            <div class="about-author d-flex p-4 bg-light">
-                                <div class="bio mr-5">
-                                    <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-                                </div>
-                                <div class="desc">
-                                    <h3>George Washington</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate
-                                        numquam!
-                                    </p>
-                                </div>
-                            </div>
+                         
 
                            <!-- COMMENTS -->
 
                                 <div class="pt-5 mt-5">
-                                    <h3 class="mb-5">6 Comments</h3>
+                                    <h3 class="mb-5">Comments</h3>
                                     <ul class="comment-list">
                                     <?php foreach ($comments as $comment): ?>
                                         <li class="comment">
-                                            <div class="vcard bio">
-                                                <img src="images/person_1.jpg" alt="Image placeholder">
-                                            </div>
+                                            
                                             <div class="comment-body">
                                                 <h3><?php echo $comment['name']; ?></h3>
-                                                <div class="meta">Oct. 29, 2019 at 1:21pm</div>
+                                                <div class="meta"> <?php echo $comment['created_at']; ?></div>
                                                 <p>
+                                                <?php echo $comment['comment']; ?>
                                                 </p>
-                                                <p><a href="#" class="reply">Reply</a></p>
+                                                <!-- <p><a href="#" class="reply">Reply</a></p> -->
                                             </div>
                                         </li>
                                         <?php endforeach; ?>
@@ -210,7 +174,7 @@ if (isset($_GET['id'])) {
 
                         </div>
                         <!-- .col-md-8 -->
-                        <div class="col-md-4 sidebar ftco-animate">
+                        <!-- <div class="col-md-4 sidebar ftco-animate">
                             <div class="sidebar-box">
                                 <form action="#" class="search-form">
                                     <div class="form-group">
@@ -229,14 +193,22 @@ if (isset($_GET['id'])) {
                                     <li><a href="#">Toyota <span>(14)</span></a></li>
                                     <li><a href="#">Mistsubishi <span>(140)</span></a></li>
                                 </div>
-                            </div>
+                            </div> -->
 
+
+                            <?php
+                                // Fetch records from the "cars" table
+                                $sql = "SELECT * FROM blog WHERE id != $blogId ";
+                                $result = $conn->query($sql);
+
+                            ?>
                             <div class="sidebar-box ftco-animate">
                                 <h3>Recent Blog</h3>
+                                <?php foreach ($result as $item) : ?>
                                 <div class="block-21 mb-4 d-flex">
-                                    <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                                    <a class="blog-img mr-4" style="background-image: url('./database/blog-images/<?php echo $item['image'];?>');"></a>
                                     <div class="text">
-                                        <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                                        <h3 class="heading"><a href="blog-single.php?id=<?php echo $item['id'];?>"><?php echo $item['subtitle'];?></a></h3>
                                         <div class="meta">
                                             <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
                                             <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -244,48 +216,10 @@ if (isset($_GET['id'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="block-21 mb-4 d-flex">
-                                    <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                                    <div class="text">
-                                        <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                                        <div class="meta">
-                                            <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
-                                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                            <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="block-21 mb-4 d-flex">
-                                    <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-                                    <div class="text">
-                                        <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                                        <div class="meta">
-                                            <div><a href="#"><span class="icon-calendar"></span>Oct. 29, 2019</a></div>
-                                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                            <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
 
-                            <div class="sidebar-box ftco-animate">
-                                <h3>Tag Cloud</h3>
-                                <div class="tagcloud">
-                                    <a href="#" class="tag-cloud-link">dish</a>
-                                    <a href="#" class="tag-cloud-link">menu</a>
-                                    <a href="#" class="tag-cloud-link">food</a>
-                                    <a href="#" class="tag-cloud-link">sweet</a>
-                                    <a href="#" class="tag-cloud-link">tasty</a>
-                                    <a href="#" class="tag-cloud-link">delicious</a>
-                                    <a href="#" class="tag-cloud-link">desserts</a>
-                                    <a href="#" class="tag-cloud-link">drinks</a>
-                                </div>
-                            </div>
-
-                            <div class="sidebar-box ftco-animate">
-                                <h3>Paragraph</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-                            </div>
+                           
                         </div>
 
                     </div>

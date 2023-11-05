@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($stmt->execute()) {
         echo "<script>alert('Successfully Commented');</script>";
-          header('Location: blog-single.php');
+          header("Location: blog-single.php?id='$post_id'");
     } else {
         echo "Error: " . $stmt->error;
     }

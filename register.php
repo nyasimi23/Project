@@ -7,65 +7,61 @@ $password = '123456'; // Replace with your MySQL password
 $dbname = 'carcrazeconnect'; // Replace with your database name
 
 // Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-  die('Connection failed: ' . $conn->connect_error);
+    die('Connection failed: ' . $conn->connect_error);
 }
 
-extract($_POST);
+// Check if the form is submitted and 'email' is set in $_POST
+if (isset($_POST['email'])) {
+    extract($_POST);
 
-$sql=mysqli_query($conn,"SELECT * FROM register where Email='$email'");
-if(mysqli_num_rows($sql)>0)
-{
-    echo
-    "
-    <script>
-      alert('Email Id Already Exists');
-    </script>
-    ";
-	exit;
-}else{
-
-    if(isset($_POST['save'])){
-
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['email'];
-    $pass = $_POST['pass']; // Raw password
-    $c_pass = $_POST['cpass'];
-
-     // Hash the password before storing it in the database
-     $hashed_password = password_hash($pass, PASSWORD_BCRYPT);
-
-     if($c_pass != $pass){
+    $sql = mysqli_query($conn, "SELECT * FROM register where Email='$email'");
+    if (mysqli_num_rows($sql) > 0) {
         echo
-    "
-    <script>
-      alert('Password don't match!');
-    </script>
-    ";
-     } else {
-        //Add to database
-         $sql = "INSERT INTO register (First_Name, Last_Name, Email, Password) VALUES ('$first_name', ' $last_name', '$email', '$hashed_password')";
+        "
+        <script>
+            alert('Email Id Already Exists');
+        </script>
+        ";
+        exit;
+    } else {
+        if (isset($_POST['save'])) {
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $email = $_POST['email'];
+            $pass = $_POST['pass']; // Raw password
+            $c_pass = $_POST['cpass'];
 
-         if ($conn->query($sql) === TRUE) {
-             //Success
-             header('Location: login.php');
-          
-        } else {
-            //Error
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            // Hash the password before storing it in the database
+            $hashed_password = password_hash($pass, PASSWORD_BCRYPT);
+
+            if ($c_pass != $pass) {
+                echo
+                "
+                <script>
+                    alert('Passwords don't match!');
+                </script>
+                ";
+            } else {
+                // Add to the database
+                $sql = "INSERT INTO register (First_Name, Last_Name, Email, Password) VALUES ('$first_name', ' $last_name', '$email', '$hashed_password')";
+
+                if ($conn->query($sql) === TRUE) {
+                    // Success
+                    header('Location: login.php');
+                } else {
+                    // Error
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            }
         }
     }
-
-     }
-
-
 }
-
 ?>
+
 
 <head>
     <meta charset="UTF-8">

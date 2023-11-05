@@ -42,14 +42,14 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item">
-                        <a href="events.html" class="nav-link">Events</a>
-                    </li>
-                    <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
-                    <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
+                    <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
+                    <!-- <li class="nav-item"> -->
+                        <!-- <a href="events.html" class="nav-link">Events</a> -->
+                    <!-- </li> -->
+                    <!-- <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li> -->
+                    <!-- <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li> -->
 
-                    <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+                    <!-- <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li> -->
                     <li class="nav-item"><a href="login.php" class="nav-link">LOGIN</a></li>
                     <li class="nav-item"><a href="register.php" class="nav-link">SIGN-UP</a></li>
                 </ul>
@@ -58,7 +58,7 @@
     </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/WhatsApp\ Image\ 2023-11-02\ at\ 22.44.35.jpeg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">

@@ -93,6 +93,7 @@ if (isset($_POST['upload'])) {
             <div class="form-group">
                 <input name="upload" type="submit" value="CREATE" class="btn btn-primary py-3 px-5" >
             </div>
+            <div><a href="car.php">BACK</a></div>
         </form>
 
     </div>

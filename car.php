@@ -71,6 +71,8 @@ $result = $conn->query($sql);
                     <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
                     <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="logout.php" class="nav-link">LOG OUT</a></li>
+
                 </ul>
             </div>
         </div>
@@ -84,6 +86,7 @@ $result = $conn->query($sql);
                 <div class="col-md-9 ftco-animate pb-5">
                     <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
                     <h1 class="mb-3 bread">Choose Your Car</h1>
+                    <p><a href="create.php" class="btn btn-primary">Post Car </a></p>
                 </div>
             </div>
         </div>

@@ -21,28 +21,30 @@ if(isset($_POST['save']))
         die('Connection failed: ' . $conn->connect_error);
     }
 
-    $sql=mysqli_query($conn,"SELECT * FROM register where Email='$email' and Password='md5($pass)'");
-    $row  = mysqli_fetch_array($sql);
+    // Correct the SQL query
+    $sql = "SELECT * FROM register WHERE Email='$email' AND Password='" . md5($pass) . "'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+
     if(is_array($row))
     {
         $_SESSION["ID"] = $row['ID'];
-        $_SESSION["Email"]=$row['Email'];
-        $_SESSION["First_Name"]=$row['First_Name'];
-        $_SESSION["Last_Name"]=$row['Last_Name']; 
+        $_SESSION["Email"] = $row['Email'];
+        $_SESSION["First_Name"] = $row['First_Name'];
+        $_SESSION["Last_Name"] = $row['Last_Name']; 
         header("Location: main.php"); 
     }
     else
     {
-
         echo
         "
         <script>
-          alert('Invalid Email ID/Password')
+            alert('Invalid Email ID/Password');
         </script>
         ";
-       
     }
 }
+
 ?>
 
 <head>
