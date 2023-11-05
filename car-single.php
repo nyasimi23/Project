@@ -73,7 +73,7 @@ if (isset($_GET['id'])) {
                     </li>
                     <!-- <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li> -->
                     <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
-                    <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
+                    <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </div>
@@ -119,7 +119,7 @@ if (isset($_GET['id'])) {
                                 <div class="text">
                                     <h3 class="heading mb-0 pl-3">
                                         Mileage
-                                        <span><?php echo $car['mileage']; ?></span>
+                                        <span></span>
                                     </h3>
                                 </div>
                             </div>

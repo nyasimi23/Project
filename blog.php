@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
+
+<?php
+$servername = "localhost"; // Replace with your server name
+$username = 'Xhaka'; // Replace with your MySQL username
+$password = '123456'; // Replace with your MySQL password
+$dbname = 'wheelsnation'; // Replace with your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die('Connection failed: ' . $conn->connect_error);
+}
+
+
+// Fetch records from the "cars" table
+$sql = "SELECT * FROM blog ";
+$result = $conn->query($sql);
+
+
+?>
 <head>
     <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
@@ -46,7 +70,7 @@
                     </li>
                     <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
                     <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </div>
@@ -69,23 +93,25 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row d-flex justify-content-center">
+            <?php foreach ($result as $item) : ?>
                 <div class="col-md-12 text-center d-flex ftco-animate">
                     <div class="blog-entry justify-content-end mb-md-5">
-                        <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_1.jpg');">
+                        <a href="blog-single.html" class="block-20 img" style="background-image: url('./database/blog-images/<?php echo $item['image'];?>');">
                         </a>
                         <div class="text px-md-5 pt-4">
                             <div class="meta mb-3">
                                 <div><a href="#">Oct. 29, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
+                                <!-- <div><a href="#">Admin</a></div> -->
                                 <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                             </div>
-                            <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                            <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
+                            <h3 class="heading mt-2"><a href="#"><?php echo $item['subtitle'];?></a></h3>
+                            <p><?php echo $item['blog'];?></p>
+                            <p><a href="blog-single.php?id=<?php echo $item['id'];?>" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 text-center d-flex ftco-animate">
+                <?php endforeach; ?>
+                <!-- <div class="col-md-12 text-center d-flex ftco-animate">
                     <div class="blog-entry justify-content-end mb-md-5">
                         <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_2.jpg');">
                         </a>
@@ -97,7 +123,7 @@
                             </div>
                             <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                            <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
+                            <p><a href="blog-single.php" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
                         </div>
                     </div>
                 </div>
@@ -164,7 +190,7 @@
                             <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
