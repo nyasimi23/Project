@@ -137,21 +137,34 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
                     <div class="row">
+
+                    <?php
+                      // Fetch records from the "cars" table
+                      $sql = "SELECT * FROM car WHERE id != $carId ";
+                      $result = $conn->query($sql);
+
+
+                    ?>
+                        <?php foreach ($result as $item) : ?>
                         <div class="col-md-4">
                             <div class="car-wrap rounded ftco-animate">
-                                <div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
+                                <div class="img rounded d-flex align-items-end" style="background-image: url('./database/image/<?php echo $item['image'];?>');">
                                 </div>
                                 <div class="text">
-                                    <h2 class="mb-0"><a href="car-single.html">Mercedes Grand Sedan</a></h2>
+                                    <h2 class="mb-0"><a href="car-single.html"><?php echo $item['make']; ?></a></h2>
                                     <div class="d-flex mb-3">
-                                        <span class="cat">Cheverolet</span>
-                                        <p class="price ml-auto">$500 <span>/day</span></p>
+                                        <span class="cat"><?php echo $item['model']; ?></span>
+                                        
                                     </div>
-                                    <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                                    <p class="d-flex mb-0 d-block"> <a href="car-single.php?id=<?php echo $item['id'];?>" class="btn btn-secondary py-2 ml-1">Details</a></p>
                                 </div>
+
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <?php endforeach; ?>
+
+
+                        <!-- <div class="col-md-4">
                             <div class="car-wrap rounded ftco-animate">
                                 <div class="img rounded d-flex align-items-end" style="background-image: url(images/car-2.jpg);">
                                 </div>
@@ -178,7 +191,7 @@ if (isset($_GET['id'])) {
                                     <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>

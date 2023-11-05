@@ -109,6 +109,8 @@ $result = $conn->query($sql);
                             <h3 class="heading mt-2"><a href="#"><?php echo $item['subtitle'];?></a></h3>
                             <p><?php echo $item['blog'];?></p>
                             <p><a href="blog-single.php?id=<?php echo $item['id'];?>" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
+                            <a href="delete-blog.php?id=<?php echo $item['id']; ?>" class="btn btn-danger">Delete</a>
+
                         </div>
                     </div>
                 </div>

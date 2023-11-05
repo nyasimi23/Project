@@ -6,7 +6,7 @@
 $servername = "localhost"; // Replace with your server name
 $username = 'Xhaka'; // Replace with your MySQL username
 $password = '123456'; // Replace with your MySQL password
-$dbname = 'carcrazeconnect'; // Replace with your database name
+$dbname = 'wheelsnation'; // Replace with your database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbname);
@@ -109,8 +109,13 @@ $result = $conn->query($sql);
                             </div>
                             <p class="d-flex mb-0 d-block">
                                 <!-- <a href="#" class="btn btn-primary py-2 mr-1">Book now</a>  -->
-                            <a href="car-single.php?id=<?php echo $item['id'];?>" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                            <div  class="row ml-auto">
+
+                                <a href="car-single.php?id=<?php echo $item['id'];?>" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                                <a href="delete-car.php?id=<?php echo $item['id']; ?>" class="btn btn-danger">Delete</a>
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <?php endforeach; ?>
