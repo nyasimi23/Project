@@ -2,11 +2,13 @@
 <html lang="en">
 
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 
-if(isset($_POST['save']))
-{
-    extract($_POST);
+
 
     $servername = "localhost"; // Replace with your server name
     $username = 'Xhaka'; // Replace with your MySQL username
@@ -20,32 +22,47 @@ if(isset($_POST['save']))
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }
-
-    // Correct the SQL query
-    $sql = "SELECT * FROM register WHERE Email='$email' AND Password='" . md5($pass) . "'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-
-    if(is_array($row))
-    {
-        $_SESSION["ID"] = $row['ID'];
-        $_SESSION["Email"] = $row['Email'];
-        $_SESSION["First_Name"] = $row['First_Name'];
-        $_SESSION["Last_Name"] = $row['Last_Name']; 
-        header("Location: main.php"); 
+    
+    
+    if (isset($_POST['save'])) {
+        $email = $_POST['email'];
+        $passwordInput = $_POST['password'];
+    
+        $sql = "SELECT * FROM register WHERE email='$email'";
+        $result = $conn->query($sql);
+    
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $hashed_password = $row['Password'];
+    
+            // Verify the password
+            if (password_verify($passwordInput, $hashed_password)) {
+                // Login successful
+                $_SESSION['email'] = $email;
+                header("Location: main.php");  // Redirect to a home page
+                exit();
+            } else {
+                // Login failed
+                echo
+                "
+                <script>
+                    alert('Login Failed!');
+                </script>
+                ";
+            }
+        } else {
+            // User not found
+            echo 
+            "
+            <script>
+            alert(Invalid username or password);
+            </script>
+            ";
+        }
+    
+        $conn->close();
     }
-    else
-    {
-        echo
-        "
-        <script>
-            alert('Invalid Email ID/Password');
-        </script>
-        ";
-    }
-}
-
-?>
+    ?>
 
 <head>
     <meta charset="UTF-8">
